@@ -71,7 +71,7 @@ class FilepondController extends BaseController
             if (count(glob($path . '/*')) === 0) {
                 rmdir($path);
             }
-            return Response::make('', 200, [
+            return Response::make($request->getContent(), 200, [
                 'Content-Type' => 'text/plain',
             ]);
         } catch (Throwable $e) {
